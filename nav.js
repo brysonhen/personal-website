@@ -17,13 +17,18 @@
 
   sections.forEach(function (s) { observer.observe(s); });
 
-  // Use replaceState instead of pushState so anchor clicks don't pollute history
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (e) {
       const target = document.querySelector(this.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth' });
+      history.replaceState(null, '', window.location.pathname);
     });
+  });
+
+  // Belt-and-suspenders: strip any hash that sneaks through
+  window.addEventListener('hashchange', function () {
+    history.replaceState(null, '', window.location.pathname);
   });
 })();
