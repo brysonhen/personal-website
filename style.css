@@ -670,6 +670,9 @@ p {
 
 .marquee-content {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  min-width: max-content;
   gap: 64px;
   padding: 20px 32px;
   flex-shrink: 0;
