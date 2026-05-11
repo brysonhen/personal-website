@@ -1,3 +1,31 @@
+// Hero subtitle typing effect
+(function () {
+  const el = document.getElementById('hero-typing');
+  if (!el) return;
+
+  const phrases = [
+    'Computer Science.',
+    'Data Science.',
+    'Building things with code.',
+  ];
+
+  let pi = 0, ci = 0, deleting = false;
+
+  function tick() {
+    const phrase = phrases[pi];
+    el.textContent = deleting ? phrase.slice(0, ci - 1) : phrase.slice(0, ci + 1);
+    deleting ? ci-- : ci++;
+
+    let delay = deleting ? 40 : 80;
+    if (!deleting && ci === phrase.length) { delay = 2000; deleting = true; }
+    else if (deleting && ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; delay = 400; }
+
+    setTimeout(tick, delay);
+  }
+
+  setTimeout(tick, 1200);
+})();
+
 // Scroll progress bar
 (function () {
   const bar = document.getElementById('progress-bar');

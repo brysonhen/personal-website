@@ -37,9 +37,21 @@ html::-webkit-scrollbar {
 body {
   font-family: 'Inter', sans-serif;
   color: var(--text);
-  background-color: transparent;
+  background-color: var(--bg);
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.layout {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Pill nav ── */
@@ -267,6 +279,25 @@ body {
   font-weight: 800;
   letter-spacing: -5px;
   color: #252525;
+}
+
+.hero-sub {
+  margin-top: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--muted);
+  min-height: 1.5em;
+}
+
+.hero-cursor {
+  color: var(--red);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 .hero-scroll {
@@ -828,4 +859,94 @@ p {
   font-size: 15px;
   font-weight: 500;
   color: var(--text);
+}
+
+/* ── Mobile ── */
+
+@media (max-width: 768px) {
+
+  .sidebar { display: none; }
+
+  .main-content { margin-left: 0; }
+
+  .pill-nav {
+    left: 50%;
+    top: 12px;
+    gap: 0;
+    padding: 6px 8px;
+  }
+
+  .pill-nav a span { display: none; }
+
+  .pill-nav a {
+    padding: 10px 10px;
+  }
+
+  .hero-section { padding: 22vh 24px 0; }
+
+  .hero-first,
+  .hero-last {
+    font-size: clamp(52px, 16vw, 110px);
+    letter-spacing: -3px;
+  }
+
+  .hero-sub { font-size: 15px; margin-top: 16px; }
+
+  .hero-scroll { right: 24px; }
+
+  section { padding: 80px 24px; }
+
+  h2 {
+    font-size: clamp(52px, 14vw, 88px);
+    letter-spacing: -2px;
+    margin-bottom: 40px;
+  }
+
+  .about-card { flex-direction: column; gap: 32px; }
+
+  .about-photo { flex: none; width: 200px; align-self: center; }
+
+  .timeline-center::before { left: 7px; transform: none; }
+
+  .tc-item {
+    display: block;
+    padding-left: 36px;
+    padding-bottom: 40px;
+    position: relative;
+  }
+
+  .tc-dot {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    justify-self: unset;
+  }
+
+  .tc-date {
+    display: block;
+    margin-bottom: 8px;
+    text-align: left !important;
+    padding: 0 !important;
+    color: var(--orange);
+  }
+
+  .tc-right .tc-date { color: var(--red); }
+
+  .tc-left .tc-card,
+  .tc-right .tc-card {
+    padding: 20px !important;
+    border-right: none !important;
+    border-left: 3px solid var(--red) !important;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 10px;
+  }
+
+  .edu-disciplines-grid { grid-template-columns: 1fr; }
+
+  .contact-cards { grid-template-columns: 1fr; }
+
+  .edu-entry { padding-left: 20px; }
 }

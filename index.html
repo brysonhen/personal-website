@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bryson Henderson</title>
+    <meta name="description" content="Bryson Henderson — Computer Science student at Ole Miss specializing in Data Science. Building things with code." />
+    <meta property="og:title" content="Bryson Henderson" />
+    <meta property="og:description" content="Computer Science & Data Science student at Ole Miss. Building things with code." />
+    <meta property="og:url" content="https://brysonhenderson.com" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
     <link rel="icon" href="favicon.svg" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -11,6 +17,7 @@
   </head>
   <body>
 
+    <canvas id="particles" aria-hidden="true"></canvas>
     <div id="progress-bar"></div>
 
     <nav class="pill-nav">
@@ -50,6 +57,7 @@
           <div class="hero-name">
             <span class="hero-first">BRYSON</span>
             <span class="hero-last">HENDERSON</span>
+            <p class="hero-sub"><span id="hero-typing"></span><span class="hero-cursor">|</span></p>
           </div>
           <a href="#about" class="hero-scroll">
             <span class="hero-scroll-label">SCROLL</span>
@@ -285,6 +293,7 @@
       </main>
     </div>
 
+  <script src="particles.js"></script>
   <script src="main.js"></script>
   <script src="nav.js"></script>
   </body>
