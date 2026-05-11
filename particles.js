@@ -3,77 +3,45 @@
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
-  let particles = [];
-  const COUNT = 50;
-  const MAX_DIST = 120;
-  const FPS = 30;
-  const INTERVAL = 1000 / FPS;
-  let lastTime = 0;
 
   function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   }
 
-  function Particle() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.vx = (Math.random() - 0.5) * 0.35;
-    this.vy = (Math.random() - 0.5) * 0.35;
-    this.r = Math.random() * 1.5 + 0.5;
-    this.isOrange = Math.random() > 0.7;
-  }
+  const orbs = [
+    { x: 0.15, y: 0.2,  r: 0.55, rgb: [249, 115, 22], speed: 0.00007, phase: 0.0 },
+    { x: 0.82, y: 0.75, r: 0.50, rgb: [220,  38, 38], speed: 0.00005, phase: 2.1 },
+    { x: 0.50, y: 0.45, r: 0.40, rgb: [180,  28, 10], speed: 0.00006, phase: 4.4 },
+    { x: 0.75, y: 0.15, r: 0.35, rgb: [249, 115, 22], speed: 0.00004, phase: 1.2 },
+  ];
 
-  Particle.prototype.move = function () {
-    this.x += this.vx;
-    this.y += this.vy;
-    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-  };
-
-  Particle.prototype.draw = function () {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-    ctx.fillStyle = this.isOrange ? 'rgba(249,115,22,0.5)' : 'rgba(245,240,232,0.2)';
-    ctx.fill();
-  };
-
-  function init() {
-    particles = [];
-    for (let i = 0; i < COUNT; i++) particles.push(new Particle());
-  }
-
-  function loop(timestamp) {
-    requestAnimationFrame(loop);
-    if (timestamp - lastTime < INTERVAL) return;
-    lastTime = timestamp;
+  function draw(ts) {
+    requestAnimationFrame(draw);
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    for (let i = 0; i < particles.length; i++) {
-      particles[i].move();
-      particles[i].draw();
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const d = Math.sqrt(dx * dx + dy * dy);
-        if (d < MAX_DIST) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          const alpha = (1 - d / MAX_DIST) * 0.15;
-          ctx.strokeStyle = (particles[i].isOrange || particles[j].isOrange)
-            ? 'rgba(249,115,22,' + alpha + ')'
-            : 'rgba(245,240,232,' + alpha + ')';
-          ctx.lineWidth = 0.6;
-          ctx.stroke();
-        }
-      }
-    }
+    const w = canvas.width;
+    const h = canvas.height;
+
+    orbs.forEach(function (orb) {
+      const t  = ts * orb.speed + orb.phase;
+      const cx = (orb.x + Math.sin(t)        * 0.14) * w;
+      const cy = (orb.y + Math.cos(t * 0.73) * 0.11) * h;
+      const r  = orb.r * Math.max(w, h);
+
+      const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+      g.addColorStop(0, 'rgba(' + orb.rgb + ',0.13)');
+      g.addColorStop(1, 'rgba(' + orb.rgb + ',0)');
+
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.fill();
+    });
   }
 
-  window.addEventListener('resize', function () { resize(); init(); }, { passive: true });
+  window.addEventListener('resize', resize, { passive: true });
   resize();
-  init();
-  requestAnimationFrame(loop);
+  requestAnimationFrame(draw);
 })();
