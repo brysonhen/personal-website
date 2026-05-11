@@ -4,41 +4,288 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bryson Henderson</title>
+    <link rel="icon" href="favicon.svg" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
   </head>
   <body>
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#resume">Resume</a>
-      <a href="#contact">Contact</a>
+    <div id="progress-bar"></div>
+
+    <nav class="pill-nav">
+      <a href="#about"><i class="fa-solid fa-user"></i><span>About</span></a>
+      <a href="#projects"><i class="fa-solid fa-laptop-code"></i><span>Projects</span></a>
+      <a href="#education"><i class="fa-solid fa-graduation-cap"></i><span>Education</span></a>
+      <a href="#experience"><i class="fa-solid fa-briefcase"></i><span>Experience</span></a>
+      <a href="#skills"><i class="fa-solid fa-code"></i><span>Skills</span></a>
+      <a href="#contact"><i class="fa-solid fa-paper-plane"></i><span>Contact</span></a>
     </nav>
 
-    <section id="hero">
-      <h1>Bryson Henderson</h1>
-      <p>Computer Science student | Turning ideas into reality.</p>
-    </section>
+    <div class="layout">
 
-    <section id="about">
-      <h2>About</h2>
-      <p>Hello! I am a junior at Ole Miss studying Computer Science with an emphasis in Data Science. Welcome to my website - a place to share my projects, resume, and whatever I'm building next.</p>
-    </section>
+      <!-- ── Sidebar ── -->
+      <aside class="sidebar">
+        <div class="sidebar-icons">
+          <a href="mailto:bryshenders@gmail.com" class="sidebar-icon" data-tooltip="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="https://linkedin.com/in/brysonhenderson/" target="_blank" class="sidebar-icon" data-tooltip="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/brysonhen" target="_blank" class="sidebar-icon" data-tooltip="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="resume.pdf" download class="sidebar-icon" data-tooltip="Resume">
+            <i class="fa-solid fa-file-arrow-down"></i>
+          </a>
+        </div>
+      </aside>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <p>Your projects will go here.</p>
-    </section>
+      <!-- ── Main content ── -->
+      <main class="main-content">
 
-    <section id="resume">
-      <h2>Resume</h2>
-      <p>Your resume content will go here.</p>
-    </section>
+        <!-- Hero -->
+        <section class="hero-section">
+          <div class="hero-name">
+            <span class="hero-first">BRYSON</span>
+            <span class="hero-last">HENDERSON</span>
+          </div>
+          <a href="#about" class="hero-scroll">
+            <span class="hero-scroll-label">SCROLL</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+        </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Your contact info will go here.</p>
-    </section>
+        <!-- About -->
+        <section id="about">
+          <h2 class="reveal"><span class="h2-main">ABOUT</span><span class="h2-ghost">ME</span></h2>
 
+          <div class="about-card reveal-left">
+            <div class="about-photo orange-bg">
+              <img src="headshot.png" alt="Bryson Henderson" class="headshot-photo" />
+            </div>
+            <div class="about-text">
+              <h3>Get To Know Me</h3>
+              <p>I'm a junior at Ole Miss studying Computer Science with a Data Science emphasis. I love building things, competing at Rocket League (Super Sonic Legend), playing soccer, and finding ways to turn ideas into reality.</p>
+              <div class="about-tags">
+                <span class="about-tag">Soccer</span>
+                <span class="about-tag">Rocket League</span>
+                <span class="about-tag">Data Science</span>
+                <span class="about-tag">Delta Psi</span>
+                <span class="about-tag">Coding Club</span>
+                <span class="about-tag">Ole Miss</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+          <h2 class="reveal h2-right"><span class="h2-main">RECENT</span><span class="h2-ghost">PROJECTS</span></h2>
+
+          <div class="projects-scroll reveal delay-1">
+            <div class="project-card">
+              <div class="project-card-top" style="background: var(--orange)">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <div class="project-card-body">
+                <div class="project-card-status">In Progress</div>
+                <div class="project-card-title">Project One</div>
+                <p class="project-card-desc">Description coming soon.</p>
+                <div class="project-card-stack">
+                  <span>Java</span><span>SQL</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-card-top" style="background: var(--yellow)">
+                <i class="fa-solid fa-database" style="color:#111"></i>
+              </div>
+              <div class="project-card-body">
+                <div class="project-card-status">In Progress</div>
+                <div class="project-card-title">Project Two</div>
+                <p class="project-card-desc">Description coming soon.</p>
+                <div class="project-card-stack">
+                  <span>Python</span><span>Data Science</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-card-top" style="background: #1C1C1C; border: 1px dashed #333">
+                <i class="fa-solid fa-plus" style="color: #444"></i>
+              </div>
+              <div class="project-card-body">
+                <div class="project-card-status">Coming Soon</div>
+                <div class="project-card-title">More Coming</div>
+                <p class="project-card-desc">New projects in the works.</p>
+                <div class="project-card-stack">
+                  <span>TBD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+          <h2 class="reveal"><span class="h2-main">WHERE I</span><span class="h2-ghost">STUDIED</span></h2>
+
+          <div class="edu-entry reveal">
+            <div class="edu-entry-header">
+              <div class="edu-entry-degree">B.S. Computer Science — Data Science Emphasis</div>
+              <div class="edu-entry-school">University of Mississippi (Ole Miss)</div>
+            </div>
+            <div class="edu-card-meta">
+              <span><i class="fa-regular fa-calendar"></i> Aug 2023 – Expected May 2027</span>
+              <span><i class="fa-solid fa-location-dot"></i> Oxford, MS</span>
+              <span><i class="fa-solid fa-book"></i> GPA: 3.43 &nbsp;·&nbsp; Minor: Mathematics</span>
+            </div>
+            <div class="edu-card-divider"></div>
+            <div class="edu-card-section-title"><i class="fa-solid fa-book-open"></i> Relevant Coursework</div>
+            <div class="edu-disciplines-grid">
+              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Algorithm &amp; Data Structure Analysis</div>
+              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Data Science</div>
+              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Advanced Data Science</div>
+              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Database Systems</div>
+              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Software Design &amp; Development</div>
+              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Operating Systems</div>
+              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Computer Organization &amp; Assembly</div>
+              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Formal &amp; Programming Languages</div>
+              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Discrete Mathematics</div>
+              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Engineering Statistics</div>
+            </div>
+            <div class="edu-card-divider"></div>
+            <div class="edu-card-section-title">Involvement</div>
+            <div class="edu-tags">
+              <span class="edu-tag">Dean's Honor Roll</span>
+              <span class="edu-tag">Academic Scholarships</span>
+              <span class="edu-tag">Delta Psi Fraternity</span>
+              <span class="edu-tag">Coding Club</span>
+              <span class="edu-tag">Intramural Soccer</span>
+            </div>
+          </div>
+
+          <div class="edu-entry edu-entry-hs reveal delay-1">
+            <div class="edu-entry-header">
+              <div class="edu-entry-degree">High School Diploma</div>
+              <div class="edu-entry-school">Madison Central High School</div>
+            </div>
+            <div class="edu-card-meta">
+              <span><i class="fa-regular fa-calendar"></i> Aug 2019 – May 2023</span>
+              <span><i class="fa-solid fa-location-dot"></i> Madison, MS</span>
+              <span><i class="fa-solid fa-star"></i> GPA: 3.64 &nbsp;·&nbsp; ACT: 28</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+          <h2 class="reveal h2-right"><span class="h2-main">WORK</span><span class="h2-ghost">EXPERIENCE</span></h2>
+
+          <div class="timeline-center">
+            <div class="tc-item tc-left reveal">
+              <div class="tc-card">
+                <div class="resume-entry-title">Server</div>
+                <div class="resume-entry-org">Georgia Blue &nbsp;·&nbsp; Madison, MS</div>
+                <ul class="resume-entry-body">
+                  <li>Managed multiple tables simultaneously in a fast-paced, high-volume environment</li>
+                  <li>Built rapport with regulars and delivered consistent, personalized service</li>
+                  <li>Resolved guest concerns quickly and professionally under pressure</li>
+                </ul>
+              </div>
+              <div class="tc-dot"></div>
+              <div class="tc-date">Summer 2023, 2024 &amp; 2025</div>
+            </div>
+
+            <div class="tc-item tc-right reveal delay-1">
+              <div class="tc-date">2022 – 2023</div>
+              <div class="tc-dot"></div>
+              <div class="tc-card">
+                <div class="resume-entry-title">Event Staff</div>
+                <div class="resume-entry-org">Bridlewood of Madison &nbsp;·&nbsp; Madison, MS</div>
+                <ul class="resume-entry-body">
+                  <li>Coordinated setup and breakdown for weddings and private events with attention to detail</li>
+                  <li>Collaborated with a team to execute seamless events under strict time constraints</li>
+                  <li>Adapted to last-minute changes while maintaining a professional, guest-focused atmosphere</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- Skills -->
+        <section id="skills">
+          <h2 class="reveal"><span class="h2-main">MY</span><span class="h2-ghost">SKILLS</span></h2>
+
+          <div class="skills-grid reveal">
+            <div class="skill-icon-card"><iconify-icon icon="logos:java" width="30" height="30"></iconify-icon><span>Java</span></div>
+            <div class="skill-icon-card"><iconify-icon icon="logos:python" width="30" height="30"></iconify-icon><span>Python</span></div>
+            <div class="skill-icon-card"><iconify-icon icon="logos:c-plusplus" width="30" height="30"></iconify-icon><span>C / C++</span></div>
+            <div class="skill-icon-card"><iconify-icon icon="logos:mysql" width="30" height="30"></iconify-icon><span>SQL</span></div>
+            <div class="skill-icon-card"><iconify-icon icon="logos:javascript" width="30" height="30"></iconify-icon><span>JavaScript</span></div>
+            <div class="skill-icon-card"><iconify-icon icon="logos:html-5" width="30" height="30"></iconify-icon><span>HTML / CSS</span></div>
+            <div class="skill-icon-card"><iconify-icon icon="logos:bash-icon" width="30" height="30"></iconify-icon><span>Bash</span></div>
+            <div class="skill-icon-card"><iconify-icon icon="logos:git-icon" width="30" height="30"></iconify-icon><span>Git</span></div>
+            <div class="skill-icon-card"><iconify-icon icon="logos:github-icon" width="30" height="30" class="icon-on-dark"></iconify-icon><span>GitHub</span></div>
+            <div class="skill-icon-card"><iconify-icon icon="logos:nodejs-icon" width="30" height="30"></iconify-icon><span>Node.js</span></div>
+            <div class="skill-icon-card"><iconify-icon icon="logos:react" width="30" height="30"></iconify-icon><span>React</span></div>
+            <div class="skill-icon-card"><iconify-icon icon="logos:firebase" width="30" height="30"></iconify-icon><span>Firebase</span></div>
+            <div class="skill-icon-card"><iconify-icon icon="logos:jupyter" width="30" height="30"></iconify-icon><span>Jupyter</span></div>
+            <div class="skill-icon-card"><iconify-icon icon="logos:pandas-icon" width="30" height="30"></iconify-icon><span>Pandas</span></div>
+            <div class="skill-icon-card"><iconify-icon icon="logos:numpy" width="30" height="30"></iconify-icon><span>NumPy</span></div>
+            <div class="skill-icon-card"><iconify-icon icon="logos:vercel-icon" width="30" height="30" class="icon-on-dark"></iconify-icon><span>Vercel</span></div>
+            <div class="skill-icon-card"><i class="fa-solid fa-diagram-project skill-concept"></i><span>Data Structures</span></div>
+            <div class="skill-icon-card"><i class="fa-solid fa-code-branch skill-concept"></i><span>Algorithms</span></div>
+            <div class="skill-icon-card"><i class="fa-solid fa-server skill-concept"></i><span>Database Systems</span></div>
+            <div class="skill-icon-card"><i class="fa-solid fa-globe skill-concept"></i><span>Web Development</span></div>
+          </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+          <h2 class="reveal"><span class="h2-main">GET IN</span><span class="h2-ghost">TOUCH</span></h2>
+          <p class="reveal delay-1">I'm always open to new opportunities, collaborations, or just a conversation. Feel free to reach out.</p>
+
+          <div class="contact-cards reveal delay-2">
+            <a href="mailto:bryshenders@gmail.com" class="contact-card">
+              <i class="fa-solid fa-envelope"></i>
+              <div>
+                <div class="contact-card-label">Email</div>
+                <div class="contact-card-value">bryshenders@gmail.com</div>
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/brysonhenderson/" target="_blank" class="contact-card">
+              <iconify-icon icon="logos:linkedin-icon" width="22" height="22"></iconify-icon>
+              <div>
+                <div class="contact-card-label">LinkedIn</div>
+                <div class="contact-card-value">brysonhenderson</div>
+              </div>
+            </a>
+            <a href="https://github.com/brysonhen" target="_blank" class="contact-card">
+              <iconify-icon icon="logos:github-icon" width="22" height="22" class="icon-on-dark"></iconify-icon>
+              <div>
+                <div class="contact-card-label">GitHub</div>
+                <div class="contact-card-value">brysonhen</div>
+              </div>
+            </a>
+            <a href="resume.pdf" download class="contact-card">
+              <i class="fa-solid fa-file-arrow-down"></i>
+              <div>
+                <div class="contact-card-label">Resume</div>
+                <div class="contact-card-value">Download PDF</div>
+              </div>
+            </a>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+  <script src="main.js"></script>
+  <script src="nav.js"></script>
   </body>
 </html>
