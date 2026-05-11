@@ -24,7 +24,6 @@
       if (!target) return;
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth' });
-      history.replaceState(null, '', this.getAttribute('href'));
     });
   });
 })();
