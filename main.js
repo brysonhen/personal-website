@@ -5,8 +5,8 @@
 
   const phrases = [
     'Computer Science.',
-    'Data Science.',
-    'Building things with code.',
+    'Aspiring Data Scientist.',
+    'Turning ideas into reality.',
   ];
 
   let pi = 0, ci = 0, deleting = false;
@@ -105,4 +105,33 @@
   document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function (el) {
     observer.observe(el);
   });
+})();
+
+// Count-up animation
+(function () {
+  const els = document.querySelectorAll('[data-count]');
+  if (!els.length) return;
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseFloat(el.dataset.count);
+      const decimals = (el.dataset.count.split('.')[1] || '').length;
+      const duration = 1400;
+      const start = performance.now();
+
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = (target * eased).toFixed(decimals);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+
+  els.forEach(function (el) { observer.observe(el); });
 })();

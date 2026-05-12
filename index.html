@@ -15,12 +15,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
   </head>
-  <body>
+  <body id="top">
 
     <canvas id="particles" aria-hidden="true"></canvas>
+    <div id="grain" aria-hidden="true"></div>
     <div id="progress-bar"></div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <i class="fa-solid fa-sun"></i>
+    </button>
 
     <nav class="pill-nav">
+      <a href="#top"><i class="fa-solid fa-house"></i><span>Home</span></a>
       <a href="#about"><i class="fa-solid fa-user"></i><span>About</span></a>
       <a href="#projects"><i class="fa-solid fa-laptop-code"></i><span>Projects</span></a>
       <a href="#education"><i class="fa-solid fa-graduation-cap"></i><span>Education</span></a>
@@ -74,16 +79,9 @@
               <img src="headshot.png" alt="Bryson Henderson" class="headshot-photo" />
             </div>
             <div class="about-text">
-              <h3>Get To Know Me</h3>
-              <p>I'm a junior at Ole Miss studying Computer Science with a Data Science emphasis. I love building things, competing at Rocket League (Super Sonic Legend), playing soccer, and finding ways to turn ideas into reality.</p>
-              <div class="about-tags">
-                <span class="about-tag">Soccer</span>
-                <span class="about-tag">Rocket League</span>
-                <span class="about-tag">Data Science</span>
-                <span class="about-tag">Delta Psi</span>
-                <span class="about-tag">Coding Club</span>
-                <span class="about-tag">Ole Miss</span>
-              </div>
+              <p class="about-main">I'm a junior at Ole Miss studying Computer Science with a Data Science emphasis. I love building things and solving problems, and I'm working toward a career in data science. I'm still figuring out exactly what that looks like, but I'm excited to get there. Right now I'm looking for internships and opportunities where I can learn and actually make a difference.</p>
+              <h3 class="secondary">Get To Know Me</h3>
+              <p>Outside of school and work, you'll usually find me at the gym, on the soccer field, or playing a video game. Video games are actually what got me into CS in the first place, so it's always been a big part of who I am. On campus I'm involved with Delta Psi and the Coding Club, and I'm always looking for new ways to grow and meet new people.</p>
             </div>
           </div>
         </section>
@@ -139,52 +137,54 @@
 
         <!-- Education -->
         <section id="education">
-          <h2 class="reveal"><span class="h2-main">WHERE I</span><span class="h2-ghost">STUDIED</span></h2>
+          <h2 class="reveal h2-depth"><span class="h2-main">EDUCATION</span></h2>
 
-          <div class="edu-entry reveal">
-            <div class="edu-entry-header">
-              <div class="edu-entry-degree">B.S. Computer Science — Data Science Emphasis</div>
-              <div class="edu-entry-school">University of Mississippi (Ole Miss)</div>
-            </div>
-            <div class="edu-card-meta">
-              <span><i class="fa-regular fa-calendar"></i> Aug 2023 – Expected May 2027</span>
-              <span><i class="fa-solid fa-location-dot"></i> Oxford, MS</span>
-              <span><i class="fa-solid fa-book"></i> GPA: 3.43 &nbsp;·&nbsp; Minor: Mathematics</span>
-            </div>
-            <div class="edu-card-divider"></div>
-            <div class="edu-card-section-title"><i class="fa-solid fa-book-open"></i> Relevant Coursework</div>
-            <div class="edu-disciplines-grid">
-              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Algorithm &amp; Data Structure Analysis</div>
-              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Data Science</div>
-              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Advanced Data Science</div>
-              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Database Systems</div>
-              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Software Design &amp; Development</div>
-              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Operating Systems</div>
-              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Computer Organization &amp; Assembly</div>
-              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Formal &amp; Programming Languages</div>
-              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Discrete Mathematics</div>
-              <div class="edu-discipline-item"><span class="edu-discipline-dot"></span>Engineering Statistics</div>
-            </div>
-            <div class="edu-card-divider"></div>
-            <div class="edu-card-section-title">Involvement</div>
-            <div class="edu-tags">
-              <span class="edu-tag">Dean's Honor Roll</span>
-              <span class="edu-tag">Academic Scholarships</span>
-              <span class="edu-tag">Delta Psi Fraternity</span>
-              <span class="edu-tag">Coding Club</span>
-              <span class="edu-tag">Intramural Soccer</span>
+          <div class="edu-row reveal">
+            <div class="edu-row-body">
+              <div class="edu-row-school">University of Mississippi (Ole Miss)</div>
+              <div class="edu-row-degree">B.S. Computer Science — Data Science Emphasis</div>
+              <div class="edu-row-meta">
+                <span>Oxford, MS</span>
+                <span>2023 – 2027</span>
+                <span>GPA <span data-count="3.43">3.43</span></span>
+                <span>Minor: Mathematics</span>
+              </div>
+              <div class="edu-row-label">Relevant Coursework</div>
+              <div class="edu-chips">
+                <span>Algorithm &amp; Data Structure Analysis</span>
+                <span>Data Science</span>
+                <span>Advanced Data Science</span>
+                <span>Database Systems</span>
+                <span>Software Design &amp; Development</span>
+                <span>Operating Systems</span>
+                <span>Computer Organization &amp; Assembly</span>
+                <span>Formal &amp; Programming Languages</span>
+                <span>Discrete Mathematics</span>
+                <span>Engineering Statistics</span>
+              </div>
+              <div class="edu-row-label" style="margin-top:24px;">Involvement</div>
+              <div class="edu-chips">
+                <span>Dean's Honor Roll</span>
+                <span>Academic Scholarships</span>
+                <span>Delta Psi Fraternity</span>
+                <span>Coding Club</span>
+                <span>Intramural Soccer</span>
+              </div>
             </div>
           </div>
 
-          <div class="edu-entry edu-entry-hs reveal delay-1">
-            <div class="edu-entry-header">
-              <div class="edu-entry-degree">High School Diploma</div>
-              <div class="edu-entry-school">Madison Central High School</div>
-            </div>
-            <div class="edu-card-meta">
-              <span><i class="fa-regular fa-calendar"></i> Aug 2019 – May 2023</span>
-              <span><i class="fa-solid fa-location-dot"></i> Madison, MS</span>
-              <span><i class="fa-solid fa-star"></i> GPA: 3.64 &nbsp;·&nbsp; ACT: 28</span>
+          <div class="edu-divider"></div>
+
+          <div class="edu-row reveal delay-1">
+            <div class="edu-row-body">
+              <div class="edu-row-school">Madison Central High School</div>
+              <div class="edu-row-degree">High School Diploma</div>
+              <div class="edu-row-meta">
+                <span>Madison, MS</span>
+                <span>2019 – 2023</span>
+                <span>GPA <span data-count="3.64">3.64</span></span>
+                <span>ACT <span data-count="28">28</span></span>
+              </div>
             </div>
           </div>
         </section>
@@ -193,34 +193,34 @@
         <section id="experience">
           <h2 class="reveal h2-right"><span class="h2-main">WORK</span><span class="h2-ghost">EXPERIENCE</span></h2>
 
-          <div class="timeline-center">
-            <div class="tc-item tc-left reveal">
-              <div class="tc-card">
-                <div class="resume-entry-title">Server</div>
-                <div class="resume-entry-org">Georgia Blue &nbsp;·&nbsp; Madison, MS</div>
-                <ul class="resume-entry-body">
-                  <li>Managed multiple tables simultaneously in a fast-paced, high-volume environment</li>
-                  <li>Built rapport with regulars and delivered consistent, personalized service</li>
-                  <li>Resolved guest concerns quickly and professionally under pressure</li>
-                </ul>
+          <div class="exp-entry reveal">
+            <div class="exp-entry-header">
+              <div>
+                <div class="exp-entry-role">Server</div>
+                <div class="exp-entry-company">Georgia Blue &nbsp;·&nbsp; Madison, MS</div>
               </div>
-              <div class="tc-dot"></div>
-              <div class="tc-date">Summer 2023, 2024 &amp; 2025</div>
+              <div class="exp-entry-date">Summer 2023, 2024 &amp; 2025</div>
             </div>
+            <ul class="exp-entry-bullets">
+              <li>Managed multiple tables simultaneously in a fast-paced, high-volume environment</li>
+              <li>Built rapport with regulars and delivered consistent, personalized service</li>
+              <li>Resolved guest concerns quickly and professionally under pressure</li>
+            </ul>
+          </div>
 
-            <div class="tc-item tc-right reveal delay-1">
-              <div class="tc-date">2022 – 2023</div>
-              <div class="tc-dot"></div>
-              <div class="tc-card">
-                <div class="resume-entry-title">Event Staff</div>
-                <div class="resume-entry-org">Bridlewood of Madison &nbsp;·&nbsp; Madison, MS</div>
-                <ul class="resume-entry-body">
-                  <li>Coordinated setup and breakdown for weddings and private events with attention to detail</li>
-                  <li>Collaborated with a team to execute seamless events under strict time constraints</li>
-                  <li>Adapted to last-minute changes while maintaining a professional, guest-focused atmosphere</li>
-                </ul>
+          <div class="exp-entry reveal delay-1">
+            <div class="exp-entry-header">
+              <div>
+                <div class="exp-entry-role">Event Staff</div>
+                <div class="exp-entry-company">Bridlewood of Madison &nbsp;·&nbsp; Madison, MS</div>
               </div>
+              <div class="exp-entry-date">2022 – 2023</div>
             </div>
+            <ul class="exp-entry-bullets">
+              <li>Coordinated setup and breakdown for weddings and private events with attention to detail</li>
+              <li>Collaborated with a team to execute seamless events under strict time constraints</li>
+              <li>Adapted to last-minute changes while maintaining a professional, guest-focused atmosphere</li>
+            </ul>
           </div>
         </section>
 
@@ -377,6 +377,28 @@
           </div>
         </section>
 
+        <div class="currently-strip">
+          <div class="currently-item">
+            <span class="currently-label">Building</span>
+            <span class="currently-value">This Portfolio</span>
+          </div>
+          <div class="currently-sep"></div>
+          <div class="currently-item">
+            <span class="currently-label">Studying</span>
+            <span class="currently-value">Data Science @ Ole Miss</span>
+          </div>
+          <div class="currently-sep"></div>
+          <div class="currently-item">
+            <span class="currently-label">Seeking</span>
+            <span class="currently-value">Summer 2026 Internship</span>
+          </div>
+          <div class="currently-sep"></div>
+          <div class="currently-item">
+            <span class="currently-label">Playing</span>
+            <span class="currently-value">Intramural Soccer</span>
+          </div>
+        </div>
+
         <footer class="site-footer">
           <span>© 2026 Bryson Henderson</span>
           <span><a href="mailto:bryshenders@gmail.com">bryshenders@gmail.com</a></span>
@@ -388,5 +410,6 @@
   <script src="particles.js"></script>
   <script src="main.js"></script>
   <script src="nav.js"></script>
+  <script src="theme.js"></script>
   </body>
 </html>
