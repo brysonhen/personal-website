@@ -43,12 +43,14 @@ html::-webkit-scrollbar {
 }
 
 [data-theme="light"] {
+  --orange: #B84800;
+  --orange-dark: #963C00;
   --bg: #E2DAD0;
   --text: #1A1A1A;
   --muted: #6E6660;
   --light: #9A928A;
   --h2-main: #1A1A1A;
-  --ghost: #C8C0B6;
+  --ghost: #8A8278;
   --card-bg: #D6CFC6;
   --card-border: #BEB7AE;
   --surface-low: #CECABE;
@@ -387,50 +389,6 @@ body {
   50%       { transform: translateY(7px); }
 }
 
-/* ── Currently strip ── */
-
-.currently-strip {
-  display: flex;
-  align-items: center;
-  padding: 20px 64px;
-  border-top: 1px solid var(--card-border);
-  border-bottom: 1px solid var(--card-border);
-  flex-wrap: wrap;
-  gap: 4px 0;
-}
-
-.currently-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 4px 28px;
-}
-
-.currently-item:first-child {
-  padding-left: 0;
-}
-
-.currently-sep {
-  width: 1px;
-  height: 18px;
-  background: var(--card-border);
-  flex-shrink: 0;
-}
-
-.currently-label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--orange);
-}
-
-.currently-value {
-  font-size: 14px;
-  color: var(--muted);
-}
-
 /* ── Sections ── */
 
 section {
@@ -473,6 +431,10 @@ h2.h2-depth .h2-main {
     4px 4px 0 #545454,
     6px 6px 0 #404040,
     8px 8px 0 #2E2E2E;
+}
+
+[data-theme="light"] h2.h2-depth .h2-main {
+  text-shadow: none;
 }
 
 h2.reveal {
