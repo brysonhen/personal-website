@@ -20,9 +20,6 @@
     <canvas id="particles" aria-hidden="true"></canvas>
     <div id="grain" aria-hidden="true"></div>
     <div id="progress-bar"></div>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-      <i class="fa-solid fa-sun"></i>
-    </button>
 
     <nav class="pill-nav">
       <a href="#home"><i class="fa-solid fa-house"></i><span>Home</span></a>
@@ -74,15 +71,49 @@
         <section id="about">
           <h2 class="reveal"><span class="h2-main">ABOUT</span><span class="h2-ghost">ME</span></h2>
 
-          <div class="about-card reveal-left">
-            <div class="about-photo">
+          <div class="bento-grid">
+
+            <!-- Photo -->
+            <div class="bento-cell bento-photo">
               <img src="headshot.png" alt="Bryson Henderson" class="headshot-photo" />
             </div>
-            <div class="about-text">
-              <p class="about-main">I'm a junior at Ole Miss studying Computer Science with a Data Science emphasis. I love building things and solving problems, and I'm working toward a career in data science. I'm still figuring out exactly what that looks like, but I'm excited to get there. Right now I'm looking for internships and opportunities where I can learn and actually make a difference.</p>
-              <h3 class="secondary">Get To Know Me</h3>
-              <p>Outside of school and work, you'll usually find me at the gym, on the soccer field, or playing a video game. Video games are actually what got me into CS in the first place, so it's always been a big part of who I am. On campus I'm involved with Delta Psi and the Coding Club, and I'm always looking for new ways to grow and meet new people.</p>
+
+            <!-- Intro -->
+            <div class="bento-cell bento-intro reveal">
+              <p class="about-main">I'm a junior at Ole Miss studying Computer Science with a Data Science emphasis. I love building things and solving problems, and I'm working toward a career in data science. Right now I'm looking for internships and opportunities where I can learn and actually make a difference.</p>
+              <div class="bento-status-row">
+                <div class="status-item">
+                  <i class="fa-solid fa-location-dot status-icon"></i>
+                  <div>
+                    <span class="status-label">Location</span>
+                    <span class="status-value">Madison &amp; Oxford, MS</span>
+                  </div>
+                </div>
+                <div class="status-item">
+                  <span class="status-dot"></span>
+                  <div>
+                    <span class="status-label">Status</span>
+                    <span class="status-value">Open to opportunities</span>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <!-- Know me -->
+            <div class="bento-cell bento-know reveal">
+              <i class="fa-solid fa-gamepad bento-know-icon" aria-hidden="true"></i>
+              <span class="bento-label">Get To Know Me</span>
+              <p>Outside of school and work, you'll usually find me at the gym, on the soccer field, or playing a video game. Video games are actually what got me into CS. On campus I'm involved with Delta Psi and the Coding Club.</p>
+              <div class="bento-grad-row">
+                <i class="fa-solid fa-graduation-cap status-icon"></i>
+                <div>
+                  <span class="status-label">Until Graduation</span>
+                  <span class="status-value"><span id="status-days">---</span> <span class="status-unit">days</span></span>
+                </div>
+              </div>
+            </div>
+
+
           </div>
         </section>
 
@@ -90,48 +121,41 @@
         <section id="projects">
           <h2 class="reveal h2-right"><span class="h2-main">RECENT</span><span class="h2-ghost">PROJECTS</span></h2>
 
-          <div class="projects-scroll reveal delay-1">
-            <div class="project-card">
-              <div class="project-card-top" style="background: var(--orange)">
-                <i class="fa-solid fa-code"></i>
+          <div class="projects-scroll-outer">
+          <div class="projects-scroll">
+            <div class="project-card" onclick="window.open('https://www.inspectai.info/', '_blank')" role="link" tabindex="0">
+              <div class="project-card-top">
+                <img src="inspectai-preview.png" alt="Inspect AI preview" class="project-card-preview">
               </div>
               <div class="project-card-body">
-                <div class="project-card-status">In Progress</div>
-                <div class="project-card-title">Project One</div>
-                <p class="project-card-desc">Description coming soon.</p>
+                <div class="project-card-title">Inspect AI</div>
+                <div class="project-card-subtitle">Inspection management web app</div>
+                <p class="project-card-desc">Creating transparency throughout the dorm inspection process.</p>
                 <div class="project-card-stack">
-                  <span>Java</span><span>SQL</span>
+                  <span>Next.js</span><span>Firebase</span><span>Node.js</span><span>Vercel</span>
                 </div>
+                <a class="project-card-github" href="https://github.com/JulienrBourgeois/Dorm-AI" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
               </div>
             </div>
 
-            <div class="project-card">
-              <div class="project-card-top" style="background: var(--yellow)">
-                <i class="fa-solid fa-database" style="color:#111"></i>
-              </div>
-              <div class="project-card-body">
-                <div class="project-card-status">In Progress</div>
-                <div class="project-card-title">Project Two</div>
-                <p class="project-card-desc">Description coming soon.</p>
-                <div class="project-card-stack">
-                  <span>Python</span><span>Data Science</span>
-                </div>
-              </div>
-            </div>
 
-            <div class="project-card">
-              <div class="project-card-top" style="background: #1C1C1C; border: 1px dashed #333">
-                <i class="fa-solid fa-plus" style="color: #444"></i>
+            <a class="project-card project-card--cta" href="https://github.com/brysonhen" target="_blank" rel="noopener">
+              <div class="project-card-top project-card-top--cta">
+                <i class="fa-brands fa-github"></i>
               </div>
-              <div class="project-card-body">
-                <div class="project-card-status">Coming Soon</div>
-                <div class="project-card-title">More Coming</div>
-                <p class="project-card-desc">New projects in the works.</p>
-                <div class="project-card-stack">
-                  <span>TBD</span>
-                </div>
+              <div class="project-cta-inner">
+                <p class="project-cta-heading">That's not everything.</p>
+                <p class="project-cta-body">The rest of my projects, experiments, and work in progress live on my GitHub.</p>
+                <span class="project-cta-link">
+                  <i class="fa-brands fa-github"></i>
+                  github.com/brysonhen
+                  <i class="fa-solid fa-arrow-right"></i>
+                </span>
               </div>
-            </div>
+            </a>
+          </div>
           </div>
         </section>
 
@@ -146,7 +170,7 @@
               <div class="edu-row-meta">
                 <span>Oxford, MS</span>
                 <span>2023 – 2027</span>
-                <span>GPA <span data-count="3.43">3.43</span></span>
+                <span>GPA <span data-count="3.54">3.54</span></span>
                 <span>Minor: Mathematics</span>
               </div>
               <div class="edu-row-label">Relevant Coursework</div>
@@ -165,6 +189,7 @@
               <div class="edu-row-label" style="margin-top:24px;">Involvement</div>
               <div class="edu-chips">
                 <span>Dean's Honor Roll</span>
+                <span>Chancellor's Honor Roll</span>
                 <span>Academic Scholarships</span>
                 <span>Delta Psi Fraternity</span>
                 <span>Coding Club</span>
@@ -345,7 +370,7 @@
           <h2 class="reveal"><span class="h2-main">GET IN</span><span class="h2-ghost">TOUCH</span></h2>
           <p class="reveal delay-1">I'm always open to new opportunities, collaborations, or just a conversation. Feel free to reach out.</p>
 
-          <div class="contact-cards reveal delay-2">
+          <div class="contact-cards">
             <a href="mailto:bryshenders@gmail.com" class="contact-card">
               <i class="fa-solid fa-envelope"></i>
               <div>
@@ -385,9 +410,11 @@
       </main>
     </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="particles.js"></script>
   <script src="main.js"></script>
   <script src="nav.js"></script>
-  <script src="theme.js"></script>
+  <script src="animations.js"></script>
   </body>
 </html>

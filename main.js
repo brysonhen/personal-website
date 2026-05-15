@@ -5,7 +5,7 @@
 
   const phrases = [
     'Computer Science.',
-    'Aspiring Data Scientist.',
+    'Data Science.',
     'Turning ideas into reality.',
   ];
 
@@ -26,6 +26,22 @@
   setTimeout(tick, 1200);
 })();
 
+// Live status strip
+(function () {
+  var daysEl = document.getElementById('status-days');
+  if (!daysEl) return;
+
+  var graduation = new Date('2027-05-10T00:00:00');
+
+  function update() {
+    var days = Math.ceil((graduation - new Date()) / 86400000);
+    daysEl.textContent = days > 0 ? days : '0';
+  }
+
+  update();
+  setInterval(update, 60000);
+})();
+
 // Scroll progress bar
 (function () {
   const bar = document.getElementById('progress-bar');
@@ -44,94 +60,4 @@
   }, { passive: true });
 })();
 
-// Hero name parallax — drifts down and fades as you scroll
-(function () {
-  const heroName = document.querySelector('.hero-name');
-  const heroSection = document.querySelector('.hero-section');
-  if (!heroName || !heroSection) return;
 
-  let ticking = false;
-
-  window.addEventListener('scroll', function () {
-    if (!ticking) {
-      requestAnimationFrame(function () {
-        const scrollY = window.scrollY;
-        const heroH = heroSection.offsetHeight;
-
-        if (scrollY <= heroH) {
-          heroName.style.transform = 'translateY(' + (scrollY * 1.4) + 'px)';
-          heroName.style.opacity = Math.max(0, 1 - scrollY / (heroH * 0.6));
-        }
-
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
-})();
-
-// Section heading parallax — subtle drift as headings pass through viewport
-(function () {
-  var headings = document.querySelectorAll('section h2');
-  if (!headings.length) return;
-
-  headings.forEach(function (h2) { h2.style.willChange = 'transform'; });
-
-  var ticking = false;
-
-  window.addEventListener('scroll', function () {
-    if (!ticking) {
-      requestAnimationFrame(function () {
-        headings.forEach(function (h2) {
-          var rect = h2.getBoundingClientRect();
-          var centerOffset = rect.top + rect.height / 2 - window.innerHeight / 2;
-          h2.style.transform = 'translateY(' + (centerOffset * 0.08) + 'px)';
-        });
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
-})();
-
-// Scroll reveal
-(function () {
-  const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      entry.target.classList.toggle('revealed', entry.isIntersecting);
-    });
-  }, { threshold: 0.2 });
-
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function (el) {
-    observer.observe(el);
-  });
-})();
-
-// Count-up animation
-(function () {
-  const els = document.querySelectorAll('[data-count]');
-  if (!els.length) return;
-
-  const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const target = parseFloat(el.dataset.count);
-      const decimals = (el.dataset.count.split('.')[1] || '').length;
-      const duration = 1400;
-      const start = performance.now();
-
-      function step(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = (target * eased).toFixed(decimals);
-        if (progress < 1) requestAnimationFrame(step);
-      }
-
-      requestAnimationFrame(step);
-      observer.unobserve(el);
-    });
-  }, { threshold: 0.4 });
-
-  els.forEach(function (el) { observer.observe(el); });
-})();

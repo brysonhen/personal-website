@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Inter:wght@400;500&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -42,25 +42,7 @@ html::-webkit-scrollbar {
   --sidebar-line: rgba(255,255,255,0.35);
 }
 
-[data-theme="light"] {
-  --orange: #B84800;
-  --orange-dark: #963C00;
-  --bg: #E2DAD0;
-  --text: #1A1A1A;
-  --muted: #6E6660;
-  --light: #9A928A;
-  --h2-main: #1A1A1A;
-  --ghost: #8A8278;
-  --card-bg: #D6CFC6;
-  --card-border: #BEB7AE;
-  --surface-low: #CECABE;
-  --surface-low-border: #B8B2A8;
-  --tag-border: #B8B2A8;
-  --nav-bg: rgba(226,218,208,0.90);
-  --nav-border: rgba(0,0,0,0.12);
-  --tooltip-bg: rgba(214,207,198,0.97);
-  --sidebar-line: rgba(0,0,0,0.25);
-}
+
 
 body {
   font-family: 'Inter', sans-serif;
@@ -118,7 +100,7 @@ body {
   align-items: center;
   color: var(--muted);
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -141,7 +123,6 @@ body {
 .pill-nav a:hover {
   color: var(--orange);
   background: rgba(249, 115, 22, 0.15);
-  transform: scale(1.15);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
@@ -226,7 +207,7 @@ body {
   transform: translateY(-50%) translateX(-6px);
   background: var(--tooltip-bg);
   color: var(--text);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -265,33 +246,12 @@ body {
 }
 
 
-/* ── Scroll reveal ── */
+/* ── Scroll reveal (initial hidden state — GSAP animates in) ── */
 
-.reveal {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.reveal.revealed {
-  opacity: 1;
-}
-
+.reveal,
 .reveal-left {
   opacity: 0;
-  transform: translateX(-36px);
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-.reveal-left.revealed {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.delay-1 { transition-delay: 0.1s; }
-.delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.3s; }
-.delay-4 { transition-delay: 0.4s; }
-.delay-5 { transition-delay: 0.5s; }
 
 .accent {
   color: var(--orange);
@@ -315,7 +275,7 @@ body {
 
 .hero-first {
   display: block;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 110px;
   font-weight: 800;
   letter-spacing: -5px;
@@ -324,7 +284,7 @@ body {
 
 .hero-last {
   display: block;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 110px;
   font-weight: 800;
   letter-spacing: -5px;
@@ -333,7 +293,7 @@ body {
 
 .hero-sub {
   margin-top: 24px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -363,7 +323,7 @@ body {
 }
 
 .hero-scroll-label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -397,7 +357,7 @@ section {
 }
 
 h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 88px;
   font-weight: 800;
   letter-spacing: -4px;
@@ -409,6 +369,7 @@ h2 {
 .h2-main {
   display: block;
   color: var(--h2-main);
+  font-variation-settings: 'wght' var(--h2-wght, 800);
   transition: color 0.4s ease;
 }
 
@@ -433,18 +394,7 @@ h2.h2-depth .h2-main {
     8px 8px 0 #2E2E2E;
 }
 
-[data-theme="light"] h2.h2-depth .h2-main {
-  text-shadow: none;
-}
 
-h2.reveal {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-h2.reveal.revealed {
-  opacity: 1;
-}
 
 p {
   font-size: 17px;
@@ -453,6 +403,184 @@ p {
 }
 
 /* ── About ── */
+
+.status-strip {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 32px;
+}
+
+.status-item:first-child { padding-left: 0; }
+
+.status-sep {
+  width: 1px;
+  height: 36px;
+  background: var(--card-border);
+  flex-shrink: 0;
+}
+
+.status-icon {
+  font-size: 18px;
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+.status-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+}
+
+.status-value {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-unit {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  flex-shrink: 0;
+  animation: pulse-dot 2s ease infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px #22c55e; }
+  50%       { opacity: 0.5; box-shadow: 0 0 3px #22c55e; }
+}
+
+.project-card-top--cta {
+  background: linear-gradient(135deg, #0d1117, #161b22);
+  font-size: 48px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Bento grid ── */
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "photo intro"
+    "photo know";
+  gap: 16px;
+}
+
+.bento-cell {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px;
+  overflow: hidden;
+}
+
+.bento-photo {
+  grid-area: photo;
+  padding: 0;
+  overflow: hidden;
+}
+
+.bento-photo .headshot-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.bento-photo:hover .headshot-photo {
+  transform: scale(1.04);
+}
+
+.bento-intro {
+  grid-area: intro;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.bento-know {
+  grid-area: know;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--surface-low);
+  border-color: var(--surface-low-border);
+  border-left: 3px solid var(--orange);
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-know-icon {
+  position: absolute;
+  bottom: -12px;
+  right: -4px;
+  font-size: 96px;
+  color: var(--orange);
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+
+.bento-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.bento-status-row {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.bento-grad-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: auto;
+}
+
+@media (max-width: 700px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "photo"
+      "intro"
+      "know";
+  }
+  .bento-photo { height: 260px; }
+}
 
 .about-card {
   display: flex;
@@ -468,7 +596,7 @@ p {
 }
 
 .about-tag {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -482,15 +610,16 @@ p {
 
 /* ── Project cards ── */
 
+.projects-scroll-outer {
+  overflow: visible;
+}
+
 .projects-scroll {
   display: flex;
   gap: 20px;
-  overflow-x: auto;
-  padding: 8px 4px 16px;
-  scrollbar-width: none;
+  overflow: visible;
+  padding: 24px 4px;
 }
-
-.projects-scroll::-webkit-scrollbar { display: none; }
 
 .project-card {
   flex: 0 0 260px;
@@ -504,11 +633,11 @@ p {
 
 .project-card:hover {
   border-color: var(--orange);
-  transform: translateY(-4px);
 }
 
 .project-card-top {
-  height: 120px;
+  height: 160px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -516,12 +645,20 @@ p {
   color: #fff;
 }
 
+.project-card-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
 .project-card-body {
   padding: 20px;
 }
 
 .project-card-status {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -531,11 +668,17 @@ p {
 }
 
 .project-card-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 16px;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 8px;
+}
+
+.project-card-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 10px;
 }
 
 .project-card-desc {
@@ -545,6 +688,79 @@ p {
   margin-bottom: 14px;
 }
 
+.project-card--cta {
+  border-style: dashed;
+  border-color: var(--card-border);
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
+}
+
+.project-card--cta:hover {
+  border-color: var(--orange);
+  background: rgba(249, 115, 22, 0.03);
+}
+
+.project-cta-inner {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-cta-heading {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.project-cta-body {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.project-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 4px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--orange);
+}
+
+.project-card--cta:hover .project-cta-link .fa-arrow-right {
+  transform: translateX(4px);
+  transition: transform 0.2s ease;
+}
+
+.project-cta-link .fa-arrow-right {
+  transition: transform 0.2s ease;
+}
+
+.project-card-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.project-card-github:hover {
+  color: var(--text);
+}
+
 .project-card-stack {
   display: flex;
   flex-wrap: wrap;
@@ -552,7 +768,7 @@ p {
 }
 
 .project-card-stack span {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -585,7 +801,7 @@ p {
 }
 
 .exp-entry-role {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 20px;
   font-weight: 700;
   color: var(--text);
@@ -598,7 +814,7 @@ p {
 }
 
 .exp-entry-date {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.8px;
@@ -662,7 +878,7 @@ p {
 }
 
 .about-text h3.secondary {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -744,7 +960,7 @@ p {
   gap: 16px;
   white-space: nowrap;
   color: var(--muted);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 22px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -779,7 +995,7 @@ p {
 }
 
 .skill-icon-card span {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -803,7 +1019,7 @@ p {
 }
 
 .edu-row-school {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -813,7 +1029,7 @@ p {
 }
 
 .edu-row-degree {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 22px;
   font-weight: 700;
   color: var(--text);
@@ -837,7 +1053,7 @@ p {
 }
 
 .edu-row-label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -861,6 +1077,7 @@ p {
   border: 1px solid var(--card-border);
 }
 
+
 /* ── Contact ── */
 
 .contact-cards {
@@ -879,12 +1096,12 @@ p {
   border: 1px solid var(--card-border);
   border-radius: 12px;
   text-decoration: none;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease;
+  position: relative;
 }
 
 .contact-card:hover {
   border-color: var(--orange);
-  transform: translateX(6px);
 }
 
 .contact-card i {
@@ -892,11 +1109,11 @@ p {
   width: 28px;
   text-align: center;
   flex-shrink: 0;
-  color: var(--red);
+  color: var(--orange);
 }
 
 .contact-card-label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -977,7 +1194,7 @@ p {
   align-items: center;
   justify-content: space-between;
   color: var(--light);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -994,42 +1211,3 @@ p {
   color: var(--orange);
 }
 
-/* ── Theme toggle ── */
-
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1001;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  color: var(--muted);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-}
-
-.theme-toggle:hover {
-  color: var(--orange);
-  border-color: var(--orange);
-}
-
-/* ── Smooth theme transitions ── */
-
-body, .pill-nav, .project-card, .contact-card,
-.edu-chips span, .site-footer, .theme-toggle,
-.sidebar-icon, .marquee-item, .about-main, p {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-/* ── Light mode icon fix ── */
-
-[data-theme="light"] .icon-on-dark {
-  filter: none;
-}
